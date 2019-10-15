@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript eksempler dat18b</title>
+</head>
+<body>
+    <h1>Javascript eksempler dat18b</h1>
+
+    <div id="msg">  innerHtml  </div>
+
+    <button onclick="greet()" >Hej</button>
+
+    <input type="text" value="TEXT" id="text_inp">
+
+    <script>
+
+        document.getElementById("msg").innerHTML = 'Hellooooo'
+
+        var greet = function(){
+            document.getElementById('msg').innerHTML = 'You clicked the button!'
+            document.getElementById('text_inp').value = 'Nu har vi PAUSE!!!!!'
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var message = function(func){
+            return func()
+        }
+
+
+        var name = 1234
+        name = 'Claus'
+
+        var person = {
+            name : 'Claus',
+            age : 34,
+
+            getName : function(){
+                return this.name + ' ' + this.age
+            }
+        }
+
+        // Dette svarer til sout
+        // console.log(person)
+
+        var message = function(func){
+            return func()
+        }
+
+        var x = function () {
+            return 'Claus Bove'
+        }
+
+
+        //document.getElementById('msg').innerHTML = message(function () {
+        //    return 'Claus Bove'
+        //})
+
+    </script>
+
+
+</body>
+</html>
