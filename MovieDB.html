@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Database</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="content"></div>
+
+<script>
+
+    $.ajax({
+        url : 'https://www.googleapis.com/youtube/v3/'
+        method : 'get'
+    }).done(function(data){
+        console.log(data.items[0].id)
+        $('#content').append(data.items[0].snippet.title)
+    })
+
+    $.get('https://www.googleapis.com/youtube/v3/videos?id=0JDNCZyaVXM&key=AIzaSyAqMJi5sUllzUPLVe6tbC557Lc_J5CmiFs&part=snippet,contentDetails,statistics,status,topicDetails,player', function(data){
+        console.log(data.items[0].id)
+        $('#content').append(data.items[0].snippet.title)
+    })
+
+    $.post('https://moviesfrontandback.herokuapp.com/api/movies/', {}, function(data, status){
+        alert("Data: " + data + "\\nStatus: " + status);
+    })
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+<!--
+
+ {
+    _id: "599ffe0538c06300040780cf",
+    title: "Angie 44777",
+    releaseYear: "2017",
+    director: "dddd",
+    genre: "Horror"
+}
+
+
+
+
+
+
+ -->
