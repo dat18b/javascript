@@ -9,25 +9,47 @@
 
 <div id="content"></div>
 
-<script>
+<input type="text" id="inp" value="">
+<button id='btn'>Click me</button>
 
+<script>
+/*
     $.ajax({
-        url : 'https://www.googleapis.com/youtube/v3/'
+        url : 'https://www.googleapis.com/youtube/v3/',
         method : 'get'
     }).done(function(data){
         console.log(data.items[0].id)
         $('#content').append(data.items[0].snippet.title)
     })
+*/
+
+    var title
+    $('#btn').click(function(){
+        title = $('#inp').val()
+
+        po()
+
+    })
+
 
     $.get('https://www.googleapis.com/youtube/v3/videos?id=0JDNCZyaVXM&key=AIzaSyAqMJi5sUllzUPLVe6tbC557Lc_J5CmiFs&part=snippet,contentDetails,statistics,status,topicDetails,player', function(data){
         console.log(data.items[0].id)
         $('#content').append(data.items[0].snippet.title)
     })
 
-    $.post('https://moviesfrontandback.herokuapp.com/api/movies/', {}, function(data, status){
-        alert("Data: " + data + "\\nStatus: " + status);
-    })
 
+    var po = function(){
+        $.post('https://moviesfrontandback.herokuapp.com/api/movies/', {
+            title: title,
+            releaseYear: "2019",
+            director: "Oscar",
+            genre: "Comedy"
+        }, function(data, status){
+
+            alert("Data: " + data + ", Status: " + status)
+
+        } )
+    }
 
 
 </script>
